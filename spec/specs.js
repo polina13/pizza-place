@@ -1,5 +1,5 @@
 // describe("Pizza", function () {
-//   it("will create a pizza object based on given properties", function () {
+//     it("will create a pizza object based on given properties", function () {
 //     var newPizza = new Pizza ("meat", "small", "pepperoni");
 //     expect(newPizza.pizzaKind).to.equal("meat");
 //     expect(newPizza.pizzaSize).to.equal("small");
