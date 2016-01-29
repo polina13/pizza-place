@@ -37,8 +37,8 @@ describe("PizzaOrder", function (){
 
   describe ("Cost", function () {
     it("will determine the cost of a pizza based on the kind, size and topping the user picks", function (){
-      var pizzacost = new Cost ("meat", "pepperoni", "small");
-      expect(pizzacost.costdisplayed()).to.equal(12);
+      var pizzacost = new Cost (12, "meat", "pepperoni", "small");
+      expect(pizzacost.costdisplayed).to.equal(12);
     });
   });
 
