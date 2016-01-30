@@ -1,33 +1,73 @@
-function Pizza (Kind,Topping, Size, Cost) {
-  this.Kind = Kind;
-  this.Topping = Topping;
-  this.Size = Size;
-  this.cost = [];
-}
+function Pizza (pizzaSize, choice1, choice2,Cost) {
+  this.pizzaSize = pizzaSize;
+  this.choice1 = choice1;
+  this.choice2 = choice2;
+  // this.choice3 = choice3;
+  // this.choice4 = choice4;
+  this.Cost = 0;
 
-function Kind (type1, type2) {
-  this.type1 = type1;
-  this.type2 = type2;
-}
+};
 
-function Topping (meattop, veggietop,maintop) {
-  this.meattop = meattop;
-  this.veggietop = veggietop;
-  this.maintop = maintop;
+Pizza.prototype.calculate = function() {
+  if(this.pizzaSize === "small") {
+       this.Cost += 8;
+     }else if (this.pizzaSize === "mediam") {
+       this.Cost += 10;
+     }else if(this.pizzaSize === "large") {
+       this.Cost += 12;
+     }
 
-}
+  if(this.choice1 === "pepperoni") {
+      this.Cost += 3;
+    }else if (this.choice1 === "ham") {
+      this.Cost += 1.75;
+    }else if (this.choice1 === "bacon") {
+      this.Cost += 2.25;
+    }else if (this.choice === "none") {
+      this.Cost += 0;
+    }
+  // if(this.choice2 === "pepperoni") {
+  //     this.Cost += 3;
+  //   }else if (this.choice2 === "ham") {
+  //     this.Cost += 1.75;
+  //   }else if (this.choice2 === "bacon") {
+  //     this.Cost += 2.25;
+  //   }else if (this.choice2 === "none") {
+  //     this.Cost += 0;
+  //   }
+  if(this.choice2 === "black-olives") {
+    this.Cost += 1.25;
+  }else if (this.choice2 === "onion") {
+    this.Cost += 1;
+  }else if (this.choice2 === "tomatoes") {
+    this.Cost += 1.25;
+  }else if (this.choice2 === "none") {
+    this.Cost += 0;
+  }
+  // if(this.choice4 === "black-olives") {
+  //    this.Cost += .25;
+  //  }else if (this.choice4 === "onion") {
+  //    this.Cost += .50
+  //  }else if(this.choice4 === "tomatoes") {
+  //    this.Cost += 1;
+  //  }else if (this.choice4 === "none") {
+  //    this.Cost += 0;
+  //  }
+   return this.Cost;
+};
 
-function Size (sizechoice1, sizechoice2, sizechoice3) {
-  this.sizechoice1 = sizechoice1;
-  this.sizechoice2 = sizechoice2;
-  this.sizechoice3 = sizechoice3;
-}
+$(document).ready(function() {
+  $("form#pizzas").submit(function(event) {
+    event.preventDefault();
 
-function Cost (costdisplayed) {
-  this.costdisplayed = costdisplayed;
-  return this.costdisplayed;
-}
-Cost.prototype.costdisplayed = function (cost) {
-  return this.Size + this.Kind + this.Topping;
-}
-// end of business logic: formula for pizza order should be equal to size + kind + topping depending on people's choices that can be picked from the drop down.
+    var pizzasize = $("select#size").val();
+    var pizzatop1 = $("select#veggietoppings").val();
+    var pizzatop2 = $("select#meattoppings").val();
+
+    var TotalPizzaPrice = new Pizza(pizzasize,pizzatop1,pizzatop2);
+    TotalPizzaPrice.calculate();
+
+    $("#order").text(TotalPizzaPrice.calculate());
+
+  });
+});
