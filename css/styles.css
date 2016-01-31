@@ -1,0 +1,22 @@
+body {
+  background-color: #FAFAD2;
+}
+
+.jumbotron {
+  font-style: italic;
+  color: 	#4B0082
+}
+
+.history {
+  text-align: center;
+
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+.btn-default {
+  width: center;
+  color: 	blue;
+}

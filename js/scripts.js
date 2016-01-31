@@ -23,25 +23,17 @@ Pizza.prototype.calculate = function() {
       this.Cost += 1.75;
     }else if (this.choice1 === "bacon") {
       this.Cost += 2.25;
-    }else if (this.choice === "none") {
+    }else if (this.choice === "no-meat") {
       this.Cost += 0;
     }
-  // if(this.choice2 === "pepperoni") {
-  //     this.Cost += 3;
-  //   }else if (this.choice2 === "ham") {
-  //     this.Cost += 1.75;
-  //   }else if (this.choice2 === "bacon") {
-  //     this.Cost += 2.25;
-  //   }else if (this.choice2 === "none") {
-  //     this.Cost += 0;
-  //   }
+
   if(this.choice2 === "black-olives") {
     this.Cost += 1.25;
   }else if (this.choice2 === "onion") {
     this.Cost += 1;
   }else if (this.choice2 === "tomatoes") {
     this.Cost += 1.25;
-  }else if (this.choice2 === "none") {
+  }else if (this.choice2 === "no-veggies") {
     this.Cost += 0;
   }
   // if(this.choice4 === "black-olives") {
@@ -53,7 +45,7 @@ Pizza.prototype.calculate = function() {
   //  }else if (this.choice4 === "none") {
   //    this.Cost += 0;
   //  }
-   return this.Cost;
+   return this.Cost / 2;
 };
 
 $(document).ready(function() {
@@ -61,13 +53,13 @@ $(document).ready(function() {
     event.preventDefault();
 
     var pizzasize = $("select#size").val();
-    var pizzatop1 = $("select#veggietoppings").val();
-    var pizzatop2 = $("select#meattoppings").val();
+    var pizzatop1 = $("select#meattoppings").val();
+    var pizzatop2 = $("select#veggietoppings").val();
 
     var TotalPizzaPrice = new Pizza(pizzasize,pizzatop1,pizzatop2);
     TotalPizzaPrice.calculate();
 
-    $("#order").text(TotalPizzaPrice.calculate());
+    $("#order").text("The final cost for your purchase today is $ " + TotalPizzaPrice.calculate() + "!");
 
   });
 });
