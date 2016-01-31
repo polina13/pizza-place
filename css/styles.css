@@ -9,14 +9,33 @@ body {
 
 .history {
   text-align: center;
-
+  color: #880000;
 }
 
 h3 {
   text-decoration: underline;
+  font-family :fantasy;
 }
 
 .btn-default {
   width: center;
-  color: 	blue;
+  color: 	#B22222;
+
+}
+
+
+.form-control {
+   color:#0000FF;
+   font-family: fantasy;;
+
+ }
+
+.pizzapic {
+  width: 50%;
+  float: left;
+}
+
+#order {
+  padding-bottom: 35px;
+
 }

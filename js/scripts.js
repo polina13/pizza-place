@@ -2,10 +2,7 @@ function Pizza (pizzaSize, choice1, choice2,Cost) {
   this.pizzaSize = pizzaSize;
   this.choice1 = choice1;
   this.choice2 = choice2;
-  // this.choice3 = choice3;
-  // this.choice4 = choice4;
   this.Cost = 0;
-
 };
 
 Pizza.prototype.calculate = function() {
@@ -36,15 +33,6 @@ Pizza.prototype.calculate = function() {
   }else if (this.choice2 === "no-veggies") {
     this.Cost += 0;
   }
-  // if(this.choice4 === "black-olives") {
-  //    this.Cost += .25;
-  //  }else if (this.choice4 === "onion") {
-  //    this.Cost += .50
-  //  }else if(this.choice4 === "tomatoes") {
-  //    this.Cost += 1;
-  //  }else if (this.choice4 === "none") {
-  //    this.Cost += 0;
-  //  }
    return this.Cost / 2;
 };
 

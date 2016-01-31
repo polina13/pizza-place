@@ -8,6 +8,6 @@ describe('Pizza', function () {
 });
   it("will calculate the price of the pizza", function () {
     var testPizza = new Pizza("small","pepperoni","black-olives");
-    expect(testPizza.calculate()).to.equal(1);
+    expect(testPizza.calculate()).to.equal(6.125);
   });
 });
